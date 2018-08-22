@@ -1,2 +1,0 @@
-# reactReduxPractice
-Created with CodeSandbox

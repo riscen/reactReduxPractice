@@ -1,0 +1,30 @@
+To develop a react app with redux:
+  1. Map all the actions our app will have. Example:
+    Add
+    Remove
+    Request
+    Repsonse
+    View
+    The actions are all the moves the user will do, that change the state of the app.
+    Add changes the state, adding a new record (writing the state).
+    View changes the state showing the records (reading the state).
+  2. Map our app using the actions we have.
+    Create the components that are going to use the state.
+    Depending in the nature of the component, connect them to redux using:
+      mapStateToProps: Connects part of the state with the component's props. Example:
+          const mapStateToProps = state => {
+            return { articles: state.articles };
+          };
+        It only uses the articles attribute of the state. This is used when you want
+        to show some part of the state ot the views (reading).
+      mapDisptachToProps: Connects reduce actions to react props. Example:
+          const mapDispatchToProps = dispatch => {
+            return {
+              addArticle: article => dispatch(addArticle(article))
+            };
+          };
+        Creates a function that takes an article for later adding to the state,
+        The function passed to dispatch should be an specified action, in this case
+        addArticle(article), returns an object with de action ADD_ARTICLE.
+        The name of the function is addArticle.
+  
